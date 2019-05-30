@@ -18,7 +18,20 @@ class Config {
         this._commandPermissions = obj['commandPermissions'];
 
         this._maxChannelsPerPerson = obj['maxChannelsPerPerson']; // TODO
+
+        this._tempChannelPermissions = obj['tempChannelPermissions'];
     }
+
+    getValue(key) {
+        return this['_' + key];
+    }
+    setValue(key, val) {
+        this['_' + key] = val;
+        this._dirty = true;
+    }
+
+    get tempChannelPermissions() { return this._tempChannelPermissions; }
+    set tempChannelPermissions(val) { this._dirty = true; this._tempChannelPermissions = val; }
 
     get maxChannelsPerPerson() { return this._maxChannelsPerPerson; }
     set maxChannelsPerPerson(val) { this._dirty = true; this._maxChannelsPerPerson = val; }
@@ -67,6 +80,7 @@ class Config {
             tempChannelFlagLocation: this._tempChannelFlagLocation,
             commandPermissions: this._commandPermissions,
             maxChannelsPerPerson: this._maxChannelsPerPerson,
+            tempChannelPermissions: this._tempChannelPermissions,
         };
         showID = showID == undefined ? true : showID;
         if (showID) rtn._id = this._id;
@@ -82,7 +96,11 @@ class GlobalConfig {
         this._tempChannelCheckInterval = obj['tempChannelCheckInterval'];
         this._autoReconnect = obj['autoReconnect'];
         this._autoReconnectInterval = obj['autoReconnectInterval'];
+        this._configSaveInterval = obj['configSaveInterval'];
+        this._administrators = obj['administrators'];
     }
+
+    get administrators() { return this._administrators; }
 
     get tempChannelCheckInterval() { return this._tempChannelCheckInterval; }
     set tempChannelCheckInterval(val) { this._dirty = true; this._tempChannelCheckInterval = val; } 
@@ -91,16 +109,20 @@ class GlobalConfig {
     set autoReconnect(val) { this._dirty = true; this._autoReconnect = val; }
 
     get autoReconnectInterval() { return this._autoReconnectInterval; }
-    set autoReconnectINterval(val) { this._autoReconnectInterval = val; }
+    set autoReconnectInterval(val) { this._autoReconnectInterval = val; }
+
+    get configSaveInterval() { return this._configSaveInterval; }
+    set configSaveInterval(val) { this._configSaveInterval= val; }
 
     isDirty() { return this._dirty; }
     clean() { this._dirty = false; }
 
     getEntryFormat() {
         return {
-            _id: this._id,
             tempChannelCheckInterval: this._tempChannelCheckInterval,
             autoReconnect: this._autoReconnect,
+            autoReconnectInterval: this._autoReconnectInterval,
+            configSaveInterval: this._configSaveInterval,
         }
     }
 }
