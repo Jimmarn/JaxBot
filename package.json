@@ -1,19 +1,13 @@
 {
-  "name": "badonkabot",
-  "version": "1.0.0",
-  "description": "A discord bot for making temporary channels",
-  "repository": "https://github.com/Just-Fans-Of/Impromp2",
+  "name": "Test",
+  "description": "Test",
+  "version": "0.0.0",
   "main": "index.js",
-  "dependencies": {
-    "discord.io": "^2.3.0",
-    "mongodb": "^2.2.19",
-    "winston": "^2.3.0"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "node index.js",
-    "start": "node index.js --silent --logfile=bot.log"
+    "start": "node index.js"
   },
-  "author": "NumbuhFour",
-  "license": "ISC"
+  "dependencies": {
+    "discord.js": "11.1.0",
+    "request": "2.81.0"
+  }
 }
