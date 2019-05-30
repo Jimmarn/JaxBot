@@ -1,3 +1,3 @@
 module.exports = {
-    discord: (process.env.BOT_TOKEN),
+    discord: BOT_TOKEN,
 };
