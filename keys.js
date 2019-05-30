@@ -1,3 +1,3 @@
 module.exports = {
-    discord: BOT_TOKEN,
+    discord: 'BOT_TOKEN',
 };
