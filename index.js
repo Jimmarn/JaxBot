@@ -10,6 +10,9 @@ client.on('message', message => {
     	message.reply('pong');
   	}
 });
+
+client.login(process.env.BOT_TOKEN);
+
 'use strict';
 
 var winston = require('winston');
